@@ -19,28 +19,28 @@ public class LocalFolderTest {
 	@Rule
 	public final TemporaryFolder temporaryFolder = new TemporaryFolder();
 
-	private Folder folder;
+	public Folder folder;
 
 	@Before
 	public void beforeEach() throws IOException {
 		final File tmpFolder = temporaryFolder.newFolder();
-		this.folder = new LocalFolder(tmpFolder.getAbsolutePath() + "\\");
+		this.folder = new LocalFolder(tmpFolder.getAbsolutePath() + File.separator);
 	}
 
 	@Test
-	public void testRemoteList() throws IOException {
+	public void testLocalList() throws IOException {
 		final List<String> list = this.folder.list();
 		Assert.assertThat(list, IsInstanceOf.instanceOf(List.class));
 	}
 
 	@Test
-	public void testRemoteVoid() throws IOException {
+	public void testLocalVoid() throws IOException {
 		this.folder.write("a", "aaa");
 		this.folder.remove("a");
 	}
 
 	@Test
-	public void testRemoteStreams() throws IOException {
+	public void testLocalStreams() throws IOException {
 		this.folder.withOutputStream("a", outputStream -> {
 			Assert.assertThat(outputStream, IsInstanceOf.instanceOf(OutputStream.class));
 			return null;

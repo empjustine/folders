@@ -45,7 +45,7 @@ public class LocalFolder implements Folder {
 	@Override
 	public List<String> list() throws IOException {
 		final Path fullPath = Paths.get(this.path);
-		try (Stream<Path> list = Files.list(fullPath)) {
+		try (final Stream<Path> list = Files.list(fullPath)) {
 			return list.map(Path::getFileName)
 				.map(String::valueOf)
 				.collect(Collectors.toList());
@@ -55,7 +55,7 @@ public class LocalFolder implements Folder {
 	@Override
 	public <T> T withInputStream(@NotNull final String fileName, @NotNull final IOExceptionFunction<? super InputStream, T> block) throws IOException {
 		final String fullPath = path + fileName;
-		try (FileInputStream inputStream = new FileInputStream(fullPath)) {
+		try (final FileInputStream inputStream = new FileInputStream(fullPath)) {
 			return block.apply(inputStream);
 		}
 	}
@@ -63,7 +63,7 @@ public class LocalFolder implements Folder {
 	@Override
 	public <T> T withOutputStream(@NotNull final String fileName, @NotNull final IOExceptionFunction<? super OutputStream, T> block) throws IOException {
 		final String fullPath = path + fileName;
-		try (FileOutputStream outputStream = new FileOutputStream(fullPath)) {
+		try (final FileOutputStream outputStream = new FileOutputStream(fullPath)) {
 			return block.apply(outputStream);
 		}
 	}

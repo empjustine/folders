@@ -22,7 +22,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
 
-class SMBClientMockFactory {
+public class SMBClientMockFactory {
 
 	private final SMBClient smbClient = Mockito.mock(SMBClient.class);
 	private final Session session = Mockito.mock(Session.class);
@@ -52,7 +52,7 @@ class SMBClientMockFactory {
 		}
 		Mockito.doReturn(this.session).when(this.connection).authenticate(Matchers.any(AuthenticationContext.class));
 		Mockito.doReturn(this.diskShare).when(this.session).connectShare(Matchers.anyString());
-		Mockito.doReturn(this.fileIdBothDirectoryInformations).when(this.diskShare).list(Matchers.anyString(), Matchers.anyString());
+		Mockito.doReturn(this.fileIdBothDirectoryInformations).when(this.diskShare).list(Matchers.anyString());
 		Mockito.doReturn("AAA_BBB_CCC.TXT").when(this.fileIdBothDirectoryInformation).getFileName();
 		Mockito.doReturn(this.file).when(this.diskShare).openFile(
 			Matchers.anyString(),

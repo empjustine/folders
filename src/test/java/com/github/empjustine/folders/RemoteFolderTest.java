@@ -15,9 +15,9 @@ import java.util.List;
 
 public class RemoteFolderTest {
 
-	private final SMBClientMockFactory smbClientMockFactory = new SMBClientMockFactory();
-	private final SMBClient smbClient = smbClientMockFactory.getSmbClient();
-	private Folder folder;
+	final SMBClientMockFactory smbClientMockFactory = new SMBClientMockFactory();
+	final SMBClient smbClient = smbClientMockFactory.getSmbClient();
+	Folder folder;
 
 	@Before
 	public void beforeEach() {
