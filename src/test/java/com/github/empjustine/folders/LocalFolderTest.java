@@ -23,7 +23,7 @@ public class LocalFolderTest {
 
 	@Before
 	public void beforeEach() throws IOException {
-		final File tmpFolder = temporaryFolder.newFolder();
+		final File tmpFolder = this.temporaryFolder.newFolder();
 		this.folder = new LocalFolder(tmpFolder.getAbsolutePath() + File.separator);
 	}
 
@@ -36,7 +36,9 @@ public class LocalFolderTest {
 	@Test
 	public void testLocalVoid() throws IOException {
 		this.folder.write("a", "aaa");
+		Assert.assertEquals(this.folder.list().size(), 1);
 		this.folder.remove("a");
+		Assert.assertEquals(this.folder.list().size(), 0);
 	}
 
 	@Test

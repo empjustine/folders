@@ -54,7 +54,7 @@ public class LocalFolder implements Folder {
 
 	@Override
 	public <T> T withInputStream(@NotNull final String fileName, @NotNull final IOExceptionFunction<? super InputStream, T> block) throws IOException {
-		final String fullPath = path + fileName;
+		final String fullPath = this.path + fileName;
 		try (final FileInputStream inputStream = new FileInputStream(fullPath)) {
 			return block.apply(inputStream);
 		}
@@ -62,7 +62,7 @@ public class LocalFolder implements Folder {
 
 	@Override
 	public <T> T withOutputStream(@NotNull final String fileName, @NotNull final IOExceptionFunction<? super OutputStream, T> block) throws IOException {
-		final String fullPath = path + fileName;
+		final String fullPath = this.path + fileName;
 		try (final FileOutputStream outputStream = new FileOutputStream(fullPath)) {
 			return block.apply(outputStream);
 		}

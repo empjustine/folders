@@ -15,7 +15,6 @@
  */
 package com.github.empjustine.folders;
 
-
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -46,6 +45,7 @@ public interface Folder {
 	 * <p>
 	 * The {@link InputStream} should read the file content.
 	 * <p>
+	 *
 	 * @return the same type and value returned from the {@code block}
 	 * lambda.
 	 * @throws IOException propagating upstream errors
@@ -63,6 +63,7 @@ public interface Folder {
 	 * <p>
 	 * The {@link OutputStream} should modify the file content.
 	 * <p>
+	 *
 	 * @return the same type and value returned from the {@code block}
 	 * lambda.
 	 * @throws IOException propagating upstream errors
@@ -72,12 +73,14 @@ public interface Folder {
 	/**
 	 * Opens a file for {@link java.nio.charset.StandardCharsets#UTF_8}
 	 * string writing.
+	 *
 	 * @throws IOException propagating upstream errors
 	 */
 	void write(@NotNull final String fileName, @NotNull final String payload) throws IOException;
 
 	/**
 	 * Remove a file from the folder.
+	 *
 	 * @throws IOException propagating upstream errors
 	 */
 	void remove(@NotNull final String fileName) throws IOException;
