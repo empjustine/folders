@@ -2,6 +2,8 @@
 
 Unified interface to handle folders, local or remote.
 
+[![Build Status](https://travis-ci.org/empjustine/folders.svg?branch=master)](https://travis-ci.org/empjustine/folders)
+
 ## Getting Started
 
 To add `Folders` as a dependency, in your `pom.xml`:
@@ -11,7 +13,7 @@ To add `Folders` as a dependency, in your `pom.xml`:
 		<dependency>
 			<groupId>com.github.empjustine</groupId>
 			<artifactId>folders</artifactId>
-			<version>1.0</version>
+			<version>1.1</version>
 		</dependency>
 	</dependencies>
 ```
